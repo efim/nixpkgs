@@ -19,6 +19,11 @@ buildGoPackage rec {
     mv $out/bin/wireguard $out/bin/wireguard-go
   '';
 
+  doInstallCheck = true;
+  installCheckPhase = ''
+    $out/bin/wireguard-go
+  '';
+
   meta = with lib; {
     description = "Userspace Go implementation of WireGuard";
     homepage = "https://git.zx2c4.com/wireguard-go/about/";
